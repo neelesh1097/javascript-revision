@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+          background-color: #212121;
+          color:azure;
+          font-family: "Stick No Bills", sans-serif;
+          display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+            font-size: 24px;
+         
+        }
+          .container{
+        
+            display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+          }
+
+          #btn1{
+            padding-block: 10px;
+            padding-inline: 45px;
+            font-family: "Stick No Bills", sans-serif;
+            font-size: 24px;
+          }
+
+          #btn2{
+            margin-top: 10px;
+            padding-block: 10px;
+            padding-inline: 45px;
+            font-family: "Stick No Bills", sans-serif;
+            font-size: 24px;
+          }
+
+
+
+</style>
+
+<body>
+    <div class="container">
+    <h1>My Name Is Neelesh</h1>
+    <button id="btn1">Stop</button>
+    <button id ="btn2">Start</button>
+</div>
+
+
+
+</body>
+<script>
+    //set interval and set timeout
+
+    //asyn 
+
+    const colorchange =function(){
+      let hex ='ABCDEF123456789'
+      let colorid ='#'
+
+      for(let i=0; i <=6; i++){
+        colorid += hex[Math.floor(Math.random() * 16)]
+       
+      }
+     
+     return colorid;
+    
+     
+    }
+    
+ 
+   
+
+    const btn = document.querySelector('#btn1');
+    const head =document.querySelector('h1')
+
+    const btn2 =document.querySelector('#btn2')
+    let intervalId;
+   
+
+    btn2.addEventListener('click' ,() => {
+
+     intervalId = setInterval(function() {
+      const ne = document.createElement("h1");
+
+      const ne2 =document.createTextNode("Hi there and greetings!");
+
+      ne.appendChild(ne2);
+
+      document.body.appendChild(ne);
+    }, 1000);
+    })
+
+
+
+
+   const alive = setTimeout(function () {
+        head.textContent = "Neelesh Is Still Alive"
+    }, 2000)
+
+    btn.addEventListener('click', ()=> {
+         clearTimeout(alive)
+         clearInterval(intervalId)
+        document.body.style.background = colorchange();
+    } 
+    
+
+   
+    
+    
+    )
+</script>
+
+</html>
